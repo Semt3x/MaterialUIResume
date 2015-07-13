@@ -1,10 +1,13 @@
-
 var routes = {};
-function route (path, templateId) {
-    routes[path] = {templateId: templateId};
+
+function route(path, templateId) {
+    routes[path] = {
+        templateId: templateId
+    };
 }
 var el = null;
-function router () {
+
+function router() {
     // Lazy load view element:
     el = el || document.getElementById('mainView');
 
@@ -16,11 +19,14 @@ function router () {
     // Do we have both a view and a route?
     if (el && route.templateId) {
         // Render route template with John Resig's template engine:
-        $("main").load("/partials/"+route.templateId+".html");
+        $("main").load("/partials/" + route.templateId + ".html", function(){
+            componentHandler.upgradeDom();
+        });
         $(".mdl-layout-title").text(route.templateId);
-
+        
     }
 }
+
 // Listen on hash change:
 window.addEventListener('hashchange', router);
 // Listen on page load:
@@ -34,3 +40,4 @@ route('/Recom', 'Recom');
 route('/Diplomas', 'Diplomas');
 route('/Contact', 'Contact');
 route('/About', 'About');
+route('/Jobs', 'Jobs');
