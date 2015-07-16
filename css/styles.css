@@ -17,6 +17,11 @@
 html,
 body {
     font-family: 'Roboto', 'Helvetica', sans-serif;
+    transition: opacity 0.2s ease-in-out;  
+}
+
+.jobs{
+    padding: 35px;
 }
 
 .avatar {
@@ -198,9 +203,11 @@ body {
 }
 .demo-card-image-steam.mdl-card {
     background: url('../images/steam.png') center / cover;
+    cursor: pointer;
 }
 .demo-card-image-lol.mdl-card {
     background: url('../images/lol.jpg') center / cover;
+    cursor: pointer;
 }
 .demo-card-image{
     height: 256px;    
@@ -217,3 +224,4 @@ body {
 .demo-table {
     
 }
+
